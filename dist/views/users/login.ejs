@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/login.js" defer></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <%-include("../partials/header")%>
+    <form class="form">
+      <p class="success hidden">
+        You are now logged in. You will soon be redirected.
+      </p>
+      <div class="form__group">
+        <div class="error email"></div>
+        <label for="email" class="form__label">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form__input"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+      <div class="form__group">
+        <div class="error password"></div>
+        <label for="password" class="form__label">Password</label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          class="form__input"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+      <button class="btn btn--login">Login</button>
+    </form>
+  </body>
+</html>

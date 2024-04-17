@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      defer
+    ></script>
+    <script src="js/script.js" defer></script>
+    <title>Todos</title>
+  </head>
+  <body>
+    <%-include("../partials/header")%>
+    <div class="container">
+      <h1 class="heading__primary">TODO TASKS</h1>
+      <div class="todo__header">
+        <p class="todos__title">Tasks</p>
+        <p class="todos__title">Actions</p>
+      </div>
+      <ul class="todos">
+        <% if(todos.length) { %>
+        <!--  -->
+        <% todos.forEach(todo => { %>
+        <li class="todos__todo">
+          <div class="todo__left">
+          <input type="checkbox" id="<%=todo.id%>" class="checkbox" <%=todo.completed ? 'checked': ''%>>
+            <!-- <form
+              class="check-form"
+              action="/todos/<%=todo.id%>?_method=PATCH"
+              method="POST"
+            >
+              <button class="<%=todo.completed?"btn":"pending"%>"><%=todo.completed ? "Completed": "Pending"%></button>
+            </form> -->
+            <p class="todos__text">
+              <span class="<%=todo.completed ? "completed":"" %>"><%=todo.text%></span>
+              <a href="/todos/<%=todo.id%>" class="view">View &rarr;</a>
+            </p>
+          </div>
+          <div class="todo__right">
+            <a href="/todos/<%=todo.id%>/edit"
+              ><ion-icon name="create" class="todo__edit"></ion-icon></a
+            >
+            <form action="/todos/<%=todo.id%>?_method=DELETE" method="POST">
+              <button class="delete">
+                
+                <ion-icon name="trash" class="todo__delete"></ion-icon>
+              </button>
+            </form>
+          </div>
+        </li>
+        <%}) %>
+        <!--  -->
+        <% } %>
+        <!-- <li class="todos__todo">
+          <div class="todo__left">
+            <form class="check-form">
+              <input type="checkbox" />
+            </form>
+            <p class="todos__text">Signin Page | Create signin page</p>
+          </div>
+          <div class="todo__right">
+            <ion-icon name="create" class="todo__edit"></ion-icon>
+            <ion-icon name="trash" class="todo__delete"></ion-icon>
+          </div>
+        </li>
+        <li class="todos__todo">
+          <div class="todo__left">
+            <form class="check-form">
+              <input type="checkbox" />
+            </form>
+            <p class="todos__text">Homepage | Create Homepage</p>
+          </div>
+          <div class="todo__right">
+            <ion-icon name="create" class="todo__edit"></ion-icon>
+            <ion-icon name="trash" class="todo__delete"></ion-icon>
+          </div>
+        </li>
+        <li class="todos__todo">
+          <div class="todo__left">
+            <form class="check-form">
+              <input type="checkbox" />
+            </form>
+            <p class="todos__text">About page | Create About page</p>
+          </div>
+          <div class="todo__right">
+            <ion-icon name="create" class="todo__edit"></ion-icon>
+            <ion-icon name="trash" class="todo__delete"></ion-icon>
+          </div>
+        </li>
+        <li class="todos__todo">
+          <div class="todo__left">
+            <form class="check-form">
+              <input type="checkbox" />
+            </form>
+            <p class="todos__text">Careers page | Create Career page</p>
+          </div>
+          <div class="todo__right">
+            <ion-icon name="create" class="todo__edit"></ion-icon>
+            <ion-icon name="trash" class="todo__delete"></ion-icon>
+          </div>
+        </li> -->
+      </ul>
+      <div class="add__container">
+        <a href="/todos/new" class="add__link">
+          <ion-icon name="add-circle" class="add"></ion-icon>
+          <span>Add Task</span>
+        </a>
+        <% if(todos.length > 1) {%>
+        <form action="/todos/deleteAll?_method=DELETE" method="POST">
+          <button class="btn btn--delete">Remove All</button>
+        </form>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

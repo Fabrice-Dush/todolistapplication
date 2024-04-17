@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #333;
+  background-color: #f3f0ff;
+  overflow-x: hidden;
+}
+
+.form {
+  position: relative;
+  box-shadow: 0 0 2rem 0.1rem rgba(0, 0, 0, 0.1);
+  padding: 3.2rem;
+  width: 40rem;
+  margin: 5rem auto;
+  border-radius: 0.6rem;
+  border-top: 5px solid #12b886;
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.4rem;
+}
+
+.form__label {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  color: #666;
+  font-weight: 600;
+}
+
+.form__input {
+  font-size: 1.6rem;
+  padding: 1.2rem 2.4rem;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 0.4rem;
+}
+
+.form__input::placeholder {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #12b886;
+  border: none;
+  padding: 1rem 4.8rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.error {
+  color: #dc143c;
+  font-size: 1.4rem;
+  order: 1;
+}
+
+/* .error ~ .form__input {
+  border: 1px solid #dc143c;
+}
+
+.error.valid ~ .form__input {
+  border: 1px solid #12b886;
+}
+
+.error.hidden ~ .form__input {
+  border: 1px solid #666;
+} */
+
+.success {
+  color: #fff;
+  background-color: #12b886;
+  font-size: 1.4rem;
+  padding: 2rem 1.6rem;
+  position: absolute;
+  left: 3%;
+  bottom: 2%;
+  border-radius: 0.6rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 70rem;
+  margin: 2rem auto;
+  box-shadow: 0 10rem 20rem 0 rgba(0, 0, 0, 0.08);
+  padding: 3.2rem;
+  border-radius: 0.6rem;
+}
+
+.heading__primary {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.todo__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #12b886;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.todos__text a:link,
+.todos__text a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.todos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding: 0 2.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.todos__todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.todo__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo__edit,
+.todo__delete {
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+.todo__edit {
+  fill: #12b886;
+}
+
+.todo__delete {
+  fill: #dc143c;
+}
+
+.welcome-label {
+  order: 1;
+  display: none;
+}
+
+.box {
+  order: 2;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: #12b886;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown {
+  padding: 1.8rem;
+  width: 30rem;
+  height: 30rem;
+  /* background-color: #dff8f0; */
+  background-color: #f7f7f7;
+  box-shadow: 0 2.4rem 4.8rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.6rem;
+  position: absolute;
+  top: 130%;
+  left: 0;
+  transform: translateX(-80%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.box:hover .dropdown {
+  display: flex;
+}
+
+.greeting {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.settings-link:link,
+.settings-link:visited {
+  text-decoration: none;
+  color: rgba(6, 75, 224, 0.938);
+  border: 2px solid #7784a1;
+  padding: 1.2rem 1.8rem;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+}
+
+.settings-link:hover,
+.settings-link:active {
+  background-color: rgba(6, 75, 224, 0.938);
+  color: #fff;
+}
+
+.highlight {
+  font-size: 2.4rem;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 50%;
+  background-color: #12b886;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.header {
+  padding: 1rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #170a33;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav__links a:link,
+.nav__links a:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.add {
+  font-size: 3.2rem;
+}
+
+.title a:link,
+.title a:visited {
+  text-decoration: none;
+  color: #12b886;
+}
+
+.title {
+  text-decoration: none;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #12b886;
+  border: none;
+  padding: 0.8rem 2.4rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.btn--big {
+  font-size: 1.6rem;
+  padding: 1rem 4rem;
+}
+
+.btn--delete {
+  background-color: #dc143c;
+}
+
+.add__container {
+  padding-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add__link {
+  text-decoration: none;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #12b886;
+}
+
+.add {
+  font-size: 3rem;
+}
+
+.delete {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.view:link,
+.view:visited {
+  font-size: 1.2rem;
+  color: #12b886 !important;
+  position: relative;
+  left: 0.8rem;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.pending {
+  background: none;
+  outline: none;
+  border: none;
+  background-color: #dc143c;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+}
+
+.delete-account:link,
+.delete-account:visited {
+  text-decoration: none;
+  font-size: 5rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center {
+  margin: 0 auto !important;
+}

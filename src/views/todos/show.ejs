@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      defer
+    ></script>
+    <script src="/js/script.js" defer></script>
+    <title><%=todo.text%></title>
+  </head>
+  <body>
+    <%-include("../partials/header")%>
+    <div class="container">
+      <h1 class="heading__primary">TODO TASK</h1>
+      <div class="todo__header">
+        <p class="todos__title">Tasks</p>
+        <p class="todos__title">Actions</p>
+      </div>
+      <ul class="todos">
+        <li class="todos__todo">
+          <div class="todo__left">
+          <input type="checkbox" id="<%=todo.id%>" class="checkbox" <%=todo.completed ? 'checked': ''%>>
+           <!-- <form
+              class="check-form"
+              action="/todos/<%=todo.id%>?_method=PATCH"
+              method="POST"
+            >
+              <button class="<%=todo.completed?"btn":"pending"%>"><%=todo.completed ? "Completed": "Pending"%></button>
+            </form> -->
+          <p class="todos__text">
+              <span class="<%=todo.completed ? "completed":"" %>"><%=todo.text%></span>
+            </p>
+          </div>
+          <div class="todo__right">
+            <a href="/todos/<%=todo.id%>/edit"
+              ><ion-icon name="create" class="todo__edit"></ion-icon></a
+            >
+            <form action="/todos/<%=todo.id%>?_method=DELETE" method="POST">
+              <button class="delete">
+                <ion-icon name="trash" class="todo__delete"></ion-icon>
+              </button>
+            </form>
+          </div>
+        </li>
+      </ul>
+      <div class="add__container">
+        <a href="/" class="add__link">&larr; Go back</a>
+      </div>
+    </div>
+  </body>
+</html>

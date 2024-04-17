@@ -1,0 +1,24 @@
+<header class="header">
+  <h2 class="title"><a href="/">Tasks Tracker</a></h2>
+  <div class="header__container">
+    <% if(user){ %>
+    <div class="box">
+      <%=user.username%>
+      <div class="dropdown hide">
+        <p class="highlight"><%=user.username%></p>
+        <p class="greeting">Hi, <%=user.fullname%>!</p>
+        <a href="/settings" class="settings-link">Manage your Account</a>
+        <!-- <a href="/users/delete">Delete Account</a> -->
+      </div>
+    </div>
+    <% } %>
+    <ul class="nav__links">
+      <% if(user) { %>
+      <li><a href="logout" class=<%=!url ? 'btn btn--signup':''%>>Logout</a></li>
+      <% } else { %>
+      <li><a href="/login" class=<%=url.includes("login") ? 'btn btn--signup':''%>>Login</a></li>
+      <li><a href="/signup" class=<%=url.includes("signup") ? 'btn btn--signup':''%>>Signup</a></li>
+      <% } %>
+    </ul>
+  </div>
+</header>
